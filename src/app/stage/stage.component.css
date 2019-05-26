@@ -1,0 +1,26 @@
+/* Stage */
+/* :host {
+    flex: 1;
+} */
+
+.stage {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: center;
+}
+
+@media print
+{    
+    .slds-no-print, .slds-no-print *
+    {
+        display: none !important;
+    }
+}
+
+/* Stage Main */
+
+/* .stage-main.slds-container_fluid {
+    margin-top: -1px;
+} */

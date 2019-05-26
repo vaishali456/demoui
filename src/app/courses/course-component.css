@@ -1,0 +1,70 @@
+/* .form-container{
+	position: relative;
+	width: 100%;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -40%);
+} */
+
+/* .slds-form-element{
+	left: 42.5%;
+	position: relative;
+	transform: translate(-50%);
+	padding-bottom: 0.7%
+} */
+.error-message{
+	position: absolute;
+	top: 110%;
+	left: 30%;
+	transform: translate(-50%, -103%);
+	color: black;
+	text-align: center;
+	z-index: 0;
+}
+
+/* .formElementLabel{
+	width: 18%;
+	text-align: left;
+} */
+
+/* .formElementControl{
+	display: inline-block;
+	width: 35%;
+} */
+
+/* fieldset{
+	width: 90%;
+} */
+
+/* .formElement{
+	text-align: center
+} */
+
+:host {
+    background-color: #EFF3F6;
+}
+/* :host >>> .slds-select,.slds-input:not(.textarea-input){
+	min-height: 1rem;
+	height: 1.5rem;
+} */
+
+.slds-tabs_scoped__content {
+	padding: 1rem 0rem;
+}
+
+.slds-form_compound .slds-form-element.slds-align_absolute-center.slds-size--2-of-5 {
+    width: 40%;
+}
+
+.slds-modal__footer {
+    text-align: center;
+}
+
+.slds-modal__container{
+width: 10%;
+min-width: 20rem;
+}
+
+.slds-modal__content{
+ text-align: center;
+}

@@ -1,0 +1,90 @@
+
+<!-- PAGE HEADER-->
+<div class="slds-page-header">
+  <div class="slds-grid">
+    <div class="slds-col slds-has-flexi-truncate">
+      <div class="slds-media slds-no-space slds-grow">
+        <div class="slds-media__figure"><span class="slds-icon_container slds-icon-custom-custom62">
+            <svg class="slds-icon" aria-hidden="true">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/icons/standard-sprite/svg/symbols.svg#account"></use>
+            </svg></span></div>
+        <div class="slds-media__body">
+          <h1 class="slds-page-header__title slds-m-top_xx-small slds-m-right_small slds-align-middle slds-truncate">Manage Course</h1>
+        </div>
+        <button class="slds-button slds-button_brand" id="new-course-button" type="button" routerLink="/demoCourseform/new">
+          <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+          </svg>          New
+        </button>
+      </div>
+    </div>
+  </div>
+  <ul class="slds-grid slds-page-header__detail-row slds-elevation-shadow_up">
+    <!-- <li class="slds-page-header__detail-block">
+      <div class="slds-form-element">
+        <label class="slds-form-element__label" for="name-input">Company Name</label>
+        <div class="slds-form-element__control">
+          <input class="slds-input" id="name-input" type="text" placeholder="Company Name" [(ngModel)]="query.name"/>
+        </div>
+      </div>
+    </li>
+    <li class="slds-page-header__detail-block">
+      <div class="slds-form-element">
+        <label class="slds-form-element__label" for="website-input">Company Website</label>
+        <div class="slds-form-element__control">
+          <input class="slds-input" id="website-input" type="text" placeholder="Company Website" [(ngModel)]="query.website"/>
+        </div>
+      </div>
+    </li>
+    <li class="slds-page-header__detail-block">
+      <div class="slds-form-element">
+        <label class="slds-form-element__label" for="course-id">List Actions</label>
+        <div class="slds-form-element__control">
+          <button class="slds-button slds-button_neutral" id="search-button" type="button" (click)="filtercourseList()">
+            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+            </svg>            Search
+          </button>
+          <button class="slds-button slds-button_destructive" id="reset-button" type="button" (click)="resetcourseList()">
+            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+            </svg>            Reset
+          </button>
+        </div>
+      </div>
+    </li> -->
+  </ul>
+</div>
+<!-- PAGE HEADER END-->
+<main class="slds-col slds-size--1-of-1">
+  <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+    <thead>
+      <tr class="slds-text-title_caps">
+        <th scope="col">
+          <div class="slds-truncate" id="company-name-header"> ID</div>
+        </th>
+        <th scope="col">
+          <div class="slds-truncate" id="company-website-header">Name</div>
+        </th>
+        <th scope="col">
+          <div class="slds-truncate" id="company-created-header">Description</div>
+        </th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courseList">
+        <th scope="row">
+          <div class="slds-truncate"><a [attr.id]="'/demoCourseform/' + course.id + '/edit'" routerLink="/demoCourseform/{{course.id}}/edit">{{course.id}}</a></div>
+        </th>
+        <td>
+          <div class="slds-truncate">{{course.name}}</div>
+        </td>
+        <td>
+          <div class="slds-truncate">{{course.description}}</div>
+        </td>
+        
+      </tr>
+    </tbody>
+  </table>
+</main>

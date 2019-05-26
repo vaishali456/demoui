@@ -1,0 +1,3 @@
+.slds-grid--frame, .slds-grid_frame {
+    min-width: calc(100vw - 4rem);
+}

@@ -1,0 +1,86 @@
+
+<section class="slds-modal slds-fade-in-open slds-modal slds-fade-in-open slds-modal_medium" *ngIf="showModal" [hidden]="!showModal" role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1">
+  <div class="slds-modal__container">
+    <header class="slds-modal__header slds-theme_success" *ngIf="showSuccessModal">
+      <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" [type]="button" (click)="onClickCloseModal(false)" title="Close">
+        <svg class="slds-button__icon slds-button__icon_large" aria-hidden="false">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+        </svg><span class="slds-assistive-text">Close</span>
+      </button>
+      <h3 class="slds-text-heading_medium slds-hyphenate" id="modal-heading-01" *ngIf="showSuccessModal">{{successModalTitle}}</h3>
+    </header>
+    <header class="slds-modal__header slds-theme_error" *ngIf="showFailureModal">
+      <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" [type]="button" (click)="onClickCloseModal(false)" title="Close">
+        <svg class="slds-button__icon slds-button__icon_large" aria-hidden="false">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+        </svg><span class="slds-assistive-text">Close</span>
+      </button>
+      <h3 class="slds-text-heading_medium slds-hyphenate" id="modal-heading-01" *ngIf="showFailureModal">{{failureModalTitle}}</h3>
+    </header>
+    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+      <div *ngIf="showSuccessModal">{{successModalMessage}}</div>
+      <div *ngIf="showFailureModal">{{failureModalMessage}}<br/>        {{responseErrorMessage}}</div>
+    </div>
+    <footer class="slds-modal__footer" *ngIf="showSuccessModal">
+      <button class="slds-button slds-button_neutral" type="button" (click)="onClickCloseModal(false)">Continue</button>
+      <button class="slds-button slds-button_brand" type="button" routerLink="/demoCourseform">OK</button>
+    </footer>
+    <footer class="slds-modal__footer" *ngIf="showFailureModal">
+      <button class="slds-button slds-button_brand" type="button" (click)="onClickCloseModal(false)">OK</button>
+    </footer>
+  </div>
+</section>
+<div class="slds-backdrop slds-backdrop_open" [hidden]="!showModal"></div>
+<div class="slds-page-header">
+  <div class="slds-grid">
+    <div class="slds-col slds-has-flexi-truncate">
+      <div class="slds-media slds-no-space slds-grow">
+        <div class="slds-media__figure"><span class="slds-icon_container slds-icon-custom-custom62">
+            <svg class="slds-icon" aria-hidden="true">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/icons/standard-sprite/svg/symbols.svg#account"></use>
+            </svg></span></div>
+        <div class="slds-media__body">
+          <h1 class="slds-page-header__title slds-m-top_xx-small slds-m-right_small slds-align-middle slds-truncate">Manage Customer</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slds-panel__section slds-border_bottom slds-theme_shade">
+  <div class="slds-panel slds-grid slds-grid_vertical slds-nowrap slds-is-editing">
+    <div class="slds-panel__section slds-form slds-form_compound" [formGroup]="courseForm" novalidate="">
+      <legend class="slds-text-heading_medium slds-m-bottom_medium">{{title}}</legend>
+      <div class="slds-size_1-of-1 slds-text-align_right">{{ courseForm.value.lastModifiedBy ? &quot;Last Modified by &quot;.concat(courseForm.value.lastModifiedBy, &quot; at &quot;, courseForm.value.updatedAt | date:&apos;d-MMM-y HH:mm  Z&apos;) : &quot;&quot; }}</div>
+      <fieldset class="slds-form-element slds-size--2-of-5 slds-align_absolute-center">
+        <div class="slds-form-element__group">
+          <div class="slds-form-element__row">
+            <div class="slds-form-element slds-size_1-of-1 {{hasErrorCourseName}}">
+              <label class="slds-form-element__label" for="input-id-01"><abbr class="slds-required" title="required">*</abbr>Course Name</label>
+              <div class="form-element-control">
+                <input class="slds-input" id="input-id-01" type="text" formControlName="name" autocomplete="off"/>
+              </div>
+            </div>
+          </div>
+          <div class="slds-form-element__row">
+            <div class="slds-form-element slds-size_1-of-1 {{hasErrorCourseDescription}}"><abbr class="slds-required" title="required">*</abbr>
+              <label class="slds-form-element__label label" for="input-id-02">Course Description</label>
+              <div class="form-element-control">
+                <input class="slds-input" id="input-id-02" type="text" formControlName="description" autocomplete="off"/>
+              </div>
+            </div>
+          </div>
+          <div class="error-message">
+            <div *ngIf="submitted; else elsenotsubmitted">{{submitMessage}}</div>
+            <ng-template class="error" #elsenotsubmitted="">{{errorMessage}}</ng-template>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="slds-panel__actions slds-border_top slds-border_bottom slds-theme_shade">
+      <div class="slds-grid slds-grid_align-center">
+        <button class="slds-button slds-button_neutral" id="cancel-button" type="button" routerLink="/demoCourseform">Cancel</button>
+        <button class="slds-button slds-button_brand" id="save-button" type="button" (click)="saveCourseInformation(courseForm.value)">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

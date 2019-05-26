@@ -1,0 +1,131 @@
+/* Menu Toggle and Stage Left */
+.stage-left.slds-theme_alt-inverse {
+    width: 4rem;
+    -webkit-transition: width .2s ease-in-out .05s;
+    transition: width .2s ease-in-out .05s;
+    background-color: rgb(0, 82, 204);
+    min-height: 100%;
+}
+
+/* This is an issue that li is not hidden */
+@media (min-width: 1024px) {
+    .stage-left.open {
+        width: 15rem;
+        -webkit-transition: width .1s ease-in-out;
+        transition: width .1s ease-in-out;
+    }
+    .stage-left.open .stage-left_text {
+        align-self: center;
+        font-size: 11px;
+        font-weight: bold;
+        white-space: nowrap;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 1;
+        width: auto;
+        -webkit-transition-delay: .2s;
+        transition-delay: .2s;
+    }
+}
+
+
+
+.stage-left a:not(.button):active {
+    box-shadow: inset 0px 3px 3px 0px rgba(0, 0, 0, 0.16), 0 0 3px #0070D2;
+}
+
+.stage-left .stage-left_text {
+    opacity: 0;
+    width: 0;
+    -webkit-transition: all .05s linear;
+    transition: all .05s linear;
+}
+
+.stage-left .slds-icon {
+    max-width: initial;
+}
+
+li + li {
+    margin-top: 0.5rem;
+}
+
+a:not(.button) {
+    display: flex;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 0.25rem;
+    background: transparent;
+    padding: 0.25rem;
+    -webkit-transition: background .05s linear;
+    transition: background .05s linear;
+}
+
+a:not(.button):hover,
+a:not(.button):focus {
+    background: rgb(7, 71, 166);
+    outline: none !important;
+}
+
+.stage-left:not(.open) a[data-tooltip].right:before, .stage-left:not(.open) a[data-tooltip].right:after {
+    transform: translateX(0px);
+}
+
+.stage-left:not(.open) a[data-tooltip].right:hover:after, .stage-left:not(.open) a[data-tooltip].right:hover:before {
+    transform: translateX(10px);
+}
+
+.stage-left:not(.open) a[data-tooltip] {
+    position: relative;
+  }
+
+  .stage-left:not(.open) a[data-tooltip]:after, a[data-tooltip]:before {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 200ms ease, opacity 200ms;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.16);
+    z-index: 99;
+}
+
+.stage-left:not(.open) a[data-tooltip]:before {
+    content: attr(data-tooltip);
+    background: #16325c;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    white-space: nowrap;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stage-left:not(.open) a[data-tooltip]:after {
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    content: '';
+}
+.stage-left:not(.open) a[data-tooltip]:hover:after, a[data-tooltip]:hover:before {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.stage-left:not(.open) a[data-tooltip][data-position="right"]:before {
+    top: 4%;
+    left: 100%;
+    margin-left: 10px;
+}
+  
+.stage-left:not(.open) a[data-tooltip][data-position="right"]:after {
+    /* border-right-color: #16325c; */
+    box-shadow: -1px 1px 2px 0 rgba(0,0,0,.16);
+    z-index: -1;
+    border-left: none;
+    /* top: calc(50% - 6px); */
+    /* left: calc(100% + 4px); */
+}
