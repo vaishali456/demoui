@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
-    "build": "ng build --prod",
+    "build": "ng update @angular/cli --migrate-only --from=1.6.4",
     "build-dev": "ng build --env=dev -bh=https://tatacommunications.sharepoint.com/sites/engineering-automation/SitePages/voip-dp-form.aspx -d=https://tatacommunications.sharepoint.com/sites/engineering-automation/SiteAssets/voip-dp-form/ -op=dist-dev",
     "test": "ng test",
     "lint": "ng lint",
