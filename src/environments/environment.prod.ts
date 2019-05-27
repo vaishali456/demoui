@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  API_URL: 'https://api.tatacommunications.com/voip-dpm-api',
-  AUTHORIZATION: 'Basic dGNsLTFaY3dwVnk5cWkxMmxJdUVXQmphVUUzcDpiMjZiYWFjNTJmNDYzNjJhYzJiMDZiMmU2OTRhYjE4MmEyYjc5MzYw'
+  API_URL: 'http://demoservice:8080/pocapp',
+  AUTHORIZATION: 'Basic YWRtaW4xOnNlY3JldDE='
 };

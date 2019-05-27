@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://localhost:8081/pocapp',
+  API_URL: 'http://demoservice:8080/pocapp',
   AUTHORIZATION: 'Basic YWRtaW4xOnNlY3JldDE='
 };
