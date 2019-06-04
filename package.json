@@ -4,9 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open",
-    "build": "ng build --prod",
-    "build-dev": "ng build --env=dev -bh=https://tatacommunications.sharepoint.com/sites/engineering-automation/SitePages/voip-dp-form.aspx -d=https://tatacommunications.sharepoint.com/sites/engineering-automation/SiteAssets/voip-dp-form/ -op=dist-dev",
+    "start": "ng serve --port 8080",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
