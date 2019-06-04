@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  API_URL: 'http://demoservice:8080/pocapp',
+  API_URL: 'http://demoapi/pocapp',
   AUTHORIZATION: 'Basic YWRtaW4xOnNlY3JldDE='
 };
